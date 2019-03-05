@@ -21,7 +21,7 @@ install:
 - nvm install $NODE_VERSION
 - nvm use $NODE_VERSION
 - npm install -g react-native-cli
-# - npm install -g detox-cli
+- npm install -g detox-cli
 - rm -rf ~/.rncache
 - rm -rf ios/build
 - rm -rf node_modules
@@ -29,6 +29,7 @@ install:
 # - cd node_modules/react-native/scripts && ./ios-install-third-party.sh && cd ../../../
 - cd ios && pod install --repo-update && cd ..
 # - react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle
+
 
 script:
   - detox build --configuration ios.sim.debug
