@@ -32,5 +32,5 @@ install:
 
 
 script:
-  - detox build --configuration ios.sim.debug
+  # - detox build --configuration ios.sim.debug
   - cd ios && xcrun xcodebuild -workspace test.xcworkspace -scheme test -configuration Debug -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'  -derivedDataPath build && cd ..
