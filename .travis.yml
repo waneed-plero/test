@@ -9,29 +9,23 @@ env:
   global:
   - NODE_VERSION=11.9.0
 
-export PING_SLEEP=30s
-export WORKDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export BUILD_OUTPUT=$WORKDIR/build.out
-touch $BUILD_OUTPUT
+# export PING_SLEEP=30s
+# export WORKDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# export BUILD_OUTPUT=$WORKDIR/build.out
+# touch $BUILD_OUTPUT
 
-dump_mvn_output() {
-   echo Tailing the last 500 lines of mvn output:
-   tail -500 $BUILD_OUTPUT 
-}
+# dump_mvn_output() {
+#    echo Tailing the last 500 lines of mvn output:
+#    tail -500 $BUILD_OUTPUT 
+# }
 
 install:
-# - softwareupdate --list >> $BUILD_OUTPUT
-# - softwareupdate --install "Command Line Tools (macOS High Sierra version 10.13) for Xcode-10.1"
-# - brew update
 - brew install yarn
-# - brew tap wix/brew
-# - brew install applesimutils
 - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 - export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 - nvm install $NODE_VERSION
 - nvm use $NODE_VERSION
 - npm install -g react-native-cli
-# - npm install -g detox-cli
 - rm -rf ~/.rncache
 - rm -rf ios/build
 - rm -rf node_modules
@@ -39,7 +33,7 @@ install:
 - cd node_modules/react-native && ./scripts/ios-install-third-party.sh
 - cd third-party/glog-0.3.4/ && ../../scripts/ios-configure-glog.sh
 - cd ../../../../
-- dump_mvn_output
+# - dump_mvn_output
 - cd ios && pod update && cd ..
-- dump_mvn_output
+# - dump_mvn_output
 - detox build -c ios.sim.debug >> $BUILD_OUTPUT
