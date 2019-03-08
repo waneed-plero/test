@@ -9,10 +9,10 @@ env:
   global:
   - NODE_VERSION=11.9.0
 
-# export PING_SLEEP=30s
-# export WORKDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# export BUILD_OUTPUT=$WORKDIR/build.out
-# touch $BUILD_OUTPUT
+export PING_SLEEP=30s
+export WORKDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export BUILD_OUTPUT=$WORKDIR/build.out
+touch $BUILD_OUTPUT
 
 # dump_mvn_output() {
 #    echo Tailing the last 500 lines of mvn output:
