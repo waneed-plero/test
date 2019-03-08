@@ -3,7 +3,7 @@ osx_image: xcode10.1
 
 branches:
   only:
-  - ft-e2e-testing
+  - master
 
 env:
   global:
