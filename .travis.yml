@@ -48,4 +48,4 @@ install:
 - cd ios
 - pod update
 - cd ..
-- detox build -c ios.sim.debug
+- detox build -c ios.sim.debug << $BUILD_OUTPUT
